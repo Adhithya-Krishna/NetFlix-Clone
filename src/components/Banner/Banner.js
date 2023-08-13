@@ -16,13 +16,13 @@ function Banner() {
         ).then((response) => {
             let num = Math.floor(Math.random() * 21)
             // console.log(num)
-            console.log(response.data.results[num])
+            // console.log(response.data.results[num])
             setMovie(response.data.results[num])
         })
     }, [])
 
     return (
-        <div style={{ backgroundImage: `url(${movie && imageUrl + movie.backdrop_path})` }}
+        <div style={{ backgroundImage: `url(${movie ? imageUrl + movie.backdrop_path : null})` }}
             className='banner'>
             <div className="content">
                 <h1 className='title'>{movie && (movie.title || movie.name)}</h1>
